@@ -16,3 +16,12 @@
     color: white;
     margin-top: 1%;
 }
+
+.changeOffer {
+    border-radius: 20px;
+    padding: 1px 2px;
+}
+
+.itemSpacing {
+    margin-left: 73%;
+}

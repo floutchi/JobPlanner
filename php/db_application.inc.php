@@ -59,20 +59,24 @@ class ApplicationRepository {
     }
 
     public function showApplicationByOffer($idOffer) {
-        $result = null;
-        $bdd = null;
+        $result = array();
+        $bdd    = null;
         try {
-            $bdd = DBLink::connect2db(MYDB, $message);
-            $stmt = $bdd->prepare("SELECT * FROM " . self::TABLE_NAME . " WHERE idOffer = :idOffer");
-            $stmt->bindValue(':idOffer', $idOffer);
-            if ($stmt->execute()) {
-                $result = $stmt->fetchObject("Application\Application");
+            $bdd  = DBLink::connect2db(MYDB, $message);
+            $stmt = $bdd->prepare("SELECT * FROM ".self::TABLE_NAME." WHERE idOffer = :pattern;");
+            $stmt->bindValue(':pattern', $idOffer);
+            if ($stmt->execute()){
+                $result = $stmt->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Application\Application");
             }
-            $stmt = null;
         } catch (Exception $e) {
-            $message .= $e->getMessage() . '<br>';
+            $message .= $e->getMessage().'<br>';
         }
         DBLink::disconnect($bdd);
         return $result;
     }
+
+    public function showtest($idOffer) {
+
+    }
+
 }
