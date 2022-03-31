@@ -1,46 +1,25 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style-agenda.css">
-    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style-agenda.css">
+    <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>My agenda</title>
 </head>
 <body>
 
-<!-- Navigation bar -->
-<div class="container-fluid fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html">Deloitte - JobPlanner</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="main_nav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="nav-link" href="../index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.php">Job offers</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="myOffers.php">My offers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="myAgenda.html">My agenda</a></li>
-                </ul>
-            </div>
-        </div>
-        <nav class="navbar navbar-light bg-light bg-opacity-100 justify-content-between">
-            <img src="../assets/person-fill.svg" alt="" width="30" height="24">
-        </nav>
-    </nav>
-</div>
-
-
-
+<?php require('php/header.inc.php');?>
 
 <div class="container">
 
-    <div class="btn-div"><button class="btn" type="button" title="Add evenement"><img id="newDate" src="../assets/calendar-plus-fill.svg" alt=""
+    <div class="btn-div"><button class="btn" type="button" title="Add evenement"><img id="newDate" src="assets/calendar-plus-fill.svg" alt=""
                                                                                                    width="50" height="40"></button>
-    <button class="btn" type="button" title="Export calendar"><img id="export" src="../assets/box-arrow-up-right.svg" alt=""
+    <button class="btn" type="button" title="Export calendar"><img id="export" src="assets/box-arrow-up-right.svg" alt=""
                                                                                       width="50" height="40"></button></div>
 
 

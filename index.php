@@ -100,6 +100,7 @@ if(isset($_POST['login'])) {
         </nav>
     </nav>
 </div>
+<?php require('php/header.inc.php');?>
 
 <!-- Office image -->
 <div class="container-fluid">
@@ -211,7 +212,7 @@ if(isset($_POST['login'])) {
              height="140">
                 <h2>'. $row['titleOffer'] .'</h2>
                 <p>'. $row['descriptionOffer'] .'</p>
-                <p><a class="btn btn-secondary btn_societyColor" href="php/jobOffer.php?idOffer='. $row['idOffer'] .'" role="button">Postuler »</a></p>
+                <p><a class="btn btn-secondary btn_societyColor" href="jobOffer.php?idOffer='. $row['idOffer'] .'" role="button">Postuler »</a></p>
             </div>';
         }
         ?>
