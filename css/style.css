@@ -76,6 +76,15 @@ body {
     }
 }
 
+/** Style My offers **/
+
+.col-lg-4{
+    margin-top: 10%;
+}
+
+.edelete{
+    margin-left: -10%;
+}
 .langageForm {
     margin-left: 2%;
     margin-bottom: 2%;
