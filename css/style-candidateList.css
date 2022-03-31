@@ -1,0 +1,18 @@
+.colorForItems {
+    color: green;
+}
+
+.container-margin {
+    margin-top: 4rem;
+}
+
+.btnColor {
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: green;
+    border: none;
+    color: white;
+    margin-top: 1%;
+}

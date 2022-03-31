@@ -7,7 +7,7 @@ $offerRepository = new OfferRepository();
 
 $resultat = $offerRepository->showOffers();
 
-?>
+?>@
 
 <!DOCTYPE html>
 <html lang="en">
