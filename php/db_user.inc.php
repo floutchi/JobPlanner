@@ -69,6 +69,28 @@ class UserRepository {
         return $noError;
     }
 
+    public function existInDb($email, &$message) {
+        $result = false;
+        $bdd    = null;
+        try {
+            $bdd  = DBLink::connect2db(MYDB, $message);
+            $stmt = $bdd->prepare("SELECT * FROM ".self::TABLE_NAME." WHERE email = :email");
+            $stmt->bindValue(':email', $email);
+            if ($stmt->execute()){
+                if($stmt->fetch() !== false){
+                    $result = true;
+                }
+            } else {
+                $message .= 'Une erreur système est survenue.<br> Veuillez essayer à nouveau plus tard ou contactez l\'administrateur du site. (Code erreur E: ' . $stmt->errorCode() . ')<br>';
+            }
+            $stmt = null;
+        } catch (Exception $e) {
+            $message .= $e->getMessage().'<br>';
+        }
+        DBLink::disconnect($bdd);
+        return $result;
+    }
+
     public function getUserById($idUser, &$message) {
         $result = false;
         $bdd = null;
@@ -76,6 +98,26 @@ class UserRepository {
             $bdd = DBLink::connect2db(MYDB, $message);
             $stmt = $bdd->prepare("SELECT * FROM " . self::TABLE_NAME . " WHERE idUser = :idUser");
             $stmt->bindValue(':idUser', $idUser);
+            if ($stmt->execute()) {
+                $result = $stmt->fetchObject("User\User");
+            } else {
+                $message .= 'Une erreur système est survenue.<br> Veuillez essayer à nouveau plus tard ou contactez l\'administrateur du site. (Code erreur: ' . $stmt->errorCode() . ')<br>';
+            }
+            $stmt = null;
+        } catch (Exception $e) {
+            $message .= $e->getMessage() . '<br>';
+        }
+        DBLink::disconnect($bdd);
+        return $result;
+    }
+
+    public function getUserByMail($email, &$message) {
+        $result = false;
+        $bdd = null;
+        try {
+            $bdd = DBLink::connect2db(MYDB, $message);
+            $stmt = $bdd->prepare("SELECT * FROM " . self::TABLE_NAME . " WHERE email = :email");
+            $stmt->bindValue(':email', $email);
             if ($stmt->execute()) {
                 $result = $stmt->fetchObject("User\User");
             } else {

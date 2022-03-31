@@ -12,8 +12,10 @@ class Application {
     public $idOffer;
     public $idCandidat;
     public $motivation;
-    public $disponibility;
-    public $cvUrl;
+    public $ableToStartIn;
+    public $cvURL;
+    public $diploma;
+    public $language;
 }
 
 class ApplicationRepository {
@@ -24,17 +26,24 @@ class ApplicationRepository {
         $bdd     = null;
 
         try {
+
             $bdd = DBLink::connect2db(MYDB, $message);
             $stmt = $bdd->prepare("INSERT INTO ".self::TABLE_NAME." 
-            (idOffer, idCandidat, motivation, disponibility, cvUrl) 
-            VALUES (:idOffer, :idCandidat, :motivation, :disponibilty, :cvUrl)");
+            (idOffer, idCandidat, motivation, ableToStartIn, cvURL, diploma, language) 
+            VALUES (:idOffer, :idCandidat, :motivation, :ableToStartIn, :cvURL, :diploma, :language)");
             $stmt->bindValue(':idOffer', $application->idOffer);
             $stmt->bindValue(':idCandidat', $application->idCandidat);
             $stmt->bindValue(':motivation', $application->motivation);
-            $stmt->bindValue(':disponibility',$application->disponibility);
-            $stmt->bindValue(':cvUrl', $application->cvUrl);
+            $stmt->bindValue(':ableToStartIn',$application->ableToStartIn);
+            $stmt->bindValue(':cvURL', $application->cvURL);
+            $stmt->bindValue(':diploma', $application->diploma);
+            $stmt->bindValue(':language', $application->language);
+
+            var_dump($stmt);
+
+
             if ($stmt->execute()){
-                $message .= 'Votre compte a bien été créé' ;
+                $message .= 'Your application has been sent successfully. A confirmation email has been sent to you' ;
                 $application->idApplication = $bdd->lastInsertId();
                 $noError = true;
             } else {
