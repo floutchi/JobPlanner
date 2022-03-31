@@ -44,21 +44,23 @@ $resultat = $offerRepository->showOffers();
     </nav>
 </div>
 
-<!-- My offers -->
+<!-- My offers-->
 <div class="container-md">
     <div class="row" id="joboffer">
-
-        <?php
-        while($row = $resultat->fetch(PDO::FETCH_ASSOC)) {
-            echo
-            '<div class="col-lg-4">
+    <?php
+    while ($row = $resultat->fetch(PDO::FETCH_ASSOC)) {
+        echo '
+             <div class="col-lg-4">
             <img class="rounded-circle" src="../img/deloitte.jpeg" alt="Generic placeholder image" width="140"
                  height="140">
             <h2>'. $row['titleOffer'] .'</h2>
-            <p>'. $row['descriptionOffer'] . '</p>
+            <p>'. $row['descriptionOffer'] .'</p>
+
             <div class="edelete">
                 <ul >
-                    <li class="list-inline-item"><a class="btn btn-secondary btn_societyColor" href="consultOffer.php?id_offer='.$row['idOffer'].'" role="button">View application »</a></li>
+                    <li class="list-inline-item">
+                    <a class="btn btn-secondary btn_societyColor" href="consultOffer.php?id_offer=' . $row['idOffer'] . '" role="button">View application »</a>
+                    </li>
                     <li class="list-inline-item">
                         <button class="btn" type="button" title="Edit"><img id="edit" src="../assets/pencil-fill.svg" alt=""
                                                                             width="20" height="19"></button>
@@ -68,9 +70,10 @@ $resultat = $offerRepository->showOffers();
                                                                               alt="" width="20" height="19"></button>
                     </li>
                 </ul>
-            </div>';
-        }
-        ?>
+            </div></div>';
+    }
+    ?>
+    </div>
 </div>
 
 </body>
