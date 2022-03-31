@@ -1,11 +1,14 @@
 <?php
 require 'php/db_offer.inc.php';
+require 'php/db_user.inc.php';
 
 use Offer\Offer;
 use Offer\OfferRepository;
+use User\UserRepository;
 
 session_start();
 $offerRepository = new OfferRepository();
+$userRepository = new UserRepository();
 
 $message = "";
 
@@ -16,6 +19,7 @@ if(isset($_POST['create'])) {
     $offer->contractType = htmlentities($_POST['contract']);
     $offer->jobStartDate = htmlentities($_POST['startDate']);
     $offer->skillsOffer = htmlentities($_POST['skills']);
+    $offer->idRH = htmlentities($_SESSION['idUser']);
 
     $offerRepository->storeOffer($offer, $message);
 }
