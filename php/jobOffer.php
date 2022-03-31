@@ -195,34 +195,6 @@ function generateCVName($offer, $email) {
 
         <h6>Diploma</h6>
         <div class="form-group">
-            <textarea name="motivations" class="form-control item" placeholder="Your motivations (optional)"></textarea>
-        </div>
-
-
-        <div class="form-group">
-            <label style="display: block">
-                <input type="radio" name="langageFrench" style="padding-right: 30%" value="A">
-                <label class="langageForm">French</label>
-            </label>
-
-            <label style="display: block">
-                <input type="radio" name="langageEnglish" style="padding-right: 30%" value="A">
-                <label class="langageForm">English</label>
-            </label>
-
-            <label style="display: block">
-                <input type="radio" name="langageNeederlands" style="padding-right: 30%" value="A">
-                <label class="langageForm">Netherlands</label>
-            </label>
-
-            <label style="display: block">
-                <input type="radio" name="langageAllemand" style="padding-right: 30%" value="A">
-                <label class="langageForm">Allemand</label>
-            </label>
-        </div>
-
-
-        <div class="form-group">
             <select class="form-control item" name="diploma">
                 <option selected value="Community College">Community college</option>
                 <option value="Bachelor">Bachelor</option>
