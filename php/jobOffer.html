@@ -23,6 +23,8 @@
                 <ul class="navbar-nav">
                     <li class="nav-item active"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../index.html#joboffer">Job offers</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="php/myOffers.html">My offers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#joboffer">My agenda</a></li>
                 </ul>
             </div>
         </div>
