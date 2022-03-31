@@ -60,7 +60,7 @@ class OfferRepository
         $bdd = null;
         try {
             $bdd = DBLink::connect2db(MYDB, $message);
-            $result = $bdd->query("SELECT titleOffer, descriptionOffer FROM " . self::TABLE_NAME);
+            $result = $bdd->query("SELECT idOffer, titleOffer, descriptionOffer FROM " . self::TABLE_NAME);
         } catch (Exception $e) {
             $message .= $e->getMessage() . '<br>';
         }

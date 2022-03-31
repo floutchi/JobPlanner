@@ -1,3 +1,14 @@
+<?php
+require 'php/db_offer.inc.php';
+
+use Offer\OfferRepository;
+
+$offerRepository = new OfferRepository();
+
+$resultat = $offerRepository->showOffers();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +35,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#joboffer">Job offers</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="php/myOffers.html">My offers</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="php/myOffers.php">My offers</a></li>
                     <li class="nav-item"><a class="nav-link" href="#joboffer">My agenda</a></li>
                 </ul>
             </div>
@@ -136,39 +147,19 @@
 
 <!-- All offers -->
 <div class="container-md"><div class="row" id="joboffer">
-    <div class="col-lg-4">
-        <img class="rounded-circle" src="img/deloitte.jpeg" alt="Generic placeholder image" width="140"
+
+        <?php
+        while($row = $resultat->fetch(PDO::FETCH_ASSOC)) {
+            echo
+            '<div class="col-lg-4">
+                <img class="rounded-circle" src="img/deloitte.jpeg" alt="Generic placeholder image" width="140"
              height="140">
-        <h2>Offre - IT Developer.</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p><a class="btn btn-secondary btn_societyColor" href="#" role="button">Postuler »</a></p>
-    </div>
-    <div class="col-lg-4">
-        <img class="rounded-circle"
-             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-             alt="Generic placeholder image" width="140" height="140">
-        <h2>Offre - Scrum Master</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p><a class="btn btn-secondary btn_societyColor" href="php/jobOffer.php" role="button">Postuler »</a></p>
-    </div>
-    <div class="col-lg-4">
-        <img class="rounded-circle"
-             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-             alt="Generic placeholder image" width="140" height="140">
-        <h2>Offre - FrontEnd Dev</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <p><a class="btn btn-secondary btn_societyColor" href="#" role="button">Postuler »</a></p>
-    </div>
-    <div class="col-lg-4">
-        <img class="rounded-circle"
-             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-             alt="Generic placeholder image" width="140" height="140">
-        <h2>Offre - SYSAdmin</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <p><a class="btn btn-secondary btn_societyColor" href="#" role="button">Postuler »</a></p>
-    </div>
+                <h2>'. $row['titleOffer'] .'</h2>
+                <p>'. $row['descriptionOffer'] .'</p>
+                <p><a class="btn btn-secondary btn_societyColor" href="php/jobOffer.php?idOffer='. $row['idOffer'] .'" role="button">Postuler »</a></p>
+            </div>';
+        }
+        ?>
 </div></div>
 
 </body>
