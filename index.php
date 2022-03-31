@@ -76,7 +76,12 @@ if(isset($_POST['login'])) {
                             echo '
                         <li class="nav-item active"><a class="nav-link" href="php/myOffers.php">My offers</a></li>
                         <li class="nav-item"><a class="nav-link" href="#joboffer">My agenda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="php/logout.php">Logout</a></li>
                     ';
+                        } else {
+                                echo '
+                            <li class="nav-item"><a class="nav-link" href="php/logout.php">Logout</a></li>
+                            ';
                         }
                     }
                     ?>
