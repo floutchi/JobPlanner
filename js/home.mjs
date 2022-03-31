@@ -1,8 +1,14 @@
+let count = 0;
+
 let icon = document.getElementById("connectionManager");
 let item = document.getElementById('formContent');
 let body = document.querySelector('body');
 
-item.hidden = true;
+let url = document.location.href;
+
+if (url.indexOf("error") === -1) {
+    item.hidden = true;
+}
 
 icon.addEventListener('click', () => {
     item.hidden = false;

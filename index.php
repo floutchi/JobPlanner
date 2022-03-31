@@ -1,13 +1,47 @@
 <?php
 require 'php/db_offer.inc.php';
+require 'php/db_user.inc.php';
 
 use Offer\OfferRepository;
+use User\User;
+use User\UserRepository;
 
+
+session_start();
 $offerRepository = new OfferRepository();
+$userRepository = new UserRepository();
+
+
+$message = "";
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+    if ($id === "error") $message = "Wrong login or password";
+}
 
 $resultat = $offerRepository->showOffers();
 
-?>@
+if(isset($_POST['login'])) {
+        $email = htmlentities($_POST['email']);
+        $password = htmlentities($_POST['password']);
+        $user = $userRepository->getUserByMail($email, $message);
+        if($user !== false) {
+            if(strcmp($user->password, $password) == 0) {
+                $_SESSION['email'] = $user->email;
+                $_SESSION['idUser'] = $user->idUser;
+                $_SESSION['isRH'] = $user->isRH;
+
+
+
+                var_dump($_SESSION);
+                $message = "";
+                header('location:index.php');
+            }
+        } else {
+            header('location:index.php?id=error');
+        }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,16 +70,30 @@ $resultat = $offerRepository->showOffers();
                 <ul class="navbar-nav">
                     <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#joboffer">Job offers</a></li>
-                    <li class="nav-item active"><a class="nav-link" href="php/myOffers.php">My offers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#joboffer">My agenda</a></li>
+                    <?php
+                    if(isset($_SESSION['isRH'])) {
+                        if($_SESSION['isRH'] == 1) {
+                            echo '
+                        <li class="nav-item active"><a class="nav-link" href="php/myOffers.php">My offers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#joboffer">My agenda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="php/logout.php">Logout</a></li>
+                    ';
+                        } else {
+                                echo '
+                            <li class="nav-item"><a class="nav-link" href="php/logout.php">Logout</a></li>
+                            ';
+                        }
+                    }
+                    ?>
+
                 </ul>
             </div>
         </div>
         <nav class="navbar navbar-light bg-light">
             <ul class="navbar-nav">
-            <li class="nav-item pe-2"><a href="php/createOffer.html"><img id="addOffer" src="assets/plus-circle-fill.svg" alt="" width="30" height="24"></a></li>
+            <li class="nav-item pe-2"><a href="php/createOffer.php"><img id="addOffer" src="assets/plus-circle-fill.svg" alt="" width="30" height="24"></a></li>
             <li class="nav-item">
-                <a href="#"><img id="connectionManager" href="#" src="assets/person-fill.svg" alt="" width="30" height="24"></a></li>
+                <a href="#" id="loginbtn"><img id="connectionManager" href="#" src="assets/person-fill.svg" alt="" width="30" height="24"></a></li>
             </ul>
         </nav>
     </nav>
@@ -57,11 +105,13 @@ $resultat = $offerRepository->showOffers();
         <!-- Popup image -->
         <div class="wrapper fadeInDown connectionPosition">
             <div id="formContent">
-                <form>
-                    <h1 class="popupTitle">Sign in</h1>
-                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="Login">
-                    <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
-                    <input type="submit" class="fadeIn fourth" value="Log In">
+                <form method="POST">
+                    <h1 class="popupTitle"">Sign in</h1>
+                    <?php
+                    if(!empty($message)) echo "<h6 style='color: red'>". $message ."</h6>"?>
+                    <input type="text" id="login" class="fadeIn second" name="email" placeholder="Login">
+                    <input type="text" id="password" class="fadeIn third" name="password" placeholder="Password">
+                    <input type="submit" class="fadeIn fourth" value="Log In" name="login">
                 </form>
 
                 <div id="formFooter">
