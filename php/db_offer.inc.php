@@ -11,12 +11,11 @@ setlocale(LC_TIME, 'fr_FR.utf8', 'fra');
 class Offer
 {
     public $idOffer;
-    public $title;
-    public $description;
-    public $skills;
+    public $titleOffer;
+    public $descriptionOffer;
+    public $skillsOffer;
     public $jobStartDate;
     public $contractType;
-    public $status;
 }
 
 class OfferRepository
@@ -69,13 +68,13 @@ class OfferRepository
         return $result;
     }
 
-    public function showOfferByTitle($titleOffer) {
+    public function showOffer($idOffer) {
         $result = null;
         $bdd = null;
         try {
             $bdd = DBLink::connect2db(MYDB, $message);
-            $stmt = $bdd->prepare("SELECT * FROM " . self::TABLE_NAME . " WHERE titleOffer = :titleOffer");
-            $stmt->bindValue(':titleOffer', $titleOffer);
+            $stmt = $bdd->prepare("SELECT * FROM " . self::TABLE_NAME . " WHERE idOffer = :idOffer");
+            $stmt->bindValue(':idOffer', $idOffer);
             if ($stmt->execute()) {
                 $result = $stmt->fetchObject("Offer\Offer");
             }
