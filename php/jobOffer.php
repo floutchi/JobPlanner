@@ -98,7 +98,7 @@ function generateCVName($offer, $email) {
                     <li class="nav-item active"><a class="nav-link" href="../index.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../index.php#joboffer">Job offers</a></li>
                     <li class="nav-item active"><a class="nav-link" href="myOffers.php">My offers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#joboffer">My agenda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="myAgenda.html">My agenda</a></li>
                 </ul>
             </div>
         </div>
