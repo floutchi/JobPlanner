@@ -1,9 +1,9 @@
 <?php
-require 'db_offer.inc.php';
-require 'db_user.inc.php';
-require 'db_application.inc.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/Exception.php';
+require 'php/db_offer.inc.php';
+require 'php/db_user.inc.php';
+require 'php/db_application.inc.php';
+require 'php/PHPMailer/src/PHPMailer.php';
+require 'php/PHPMailer/src/Exception.php';
 
 
 
@@ -15,6 +15,7 @@ use User\UserRepository;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+session_start();
 $offerRepository = new OfferRepository();
 $userRepository = new UserRepository();
 $applicationRepository = new ApplicationRepository();
@@ -120,14 +121,14 @@ function generateCVName($offer, $email) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>Offer</title>
 </head>
 
-<?php require('header.inc.php');?>
+<?php require('php/header.inc.php');?>
 
 <body class="bg-light">
 
@@ -141,7 +142,7 @@ function generateCVName($offer, $email) {
         <div class="col-md-5">
             <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
                  style="width: 250px; height: 250px;"
-                 src="../img/deloitte2.jpg"
+                 src="img/deloitte2.jpg"
                  data-holder-rendered="true">
         </div>
     </div>

@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,7 @@
 </head>
 <body class="bg-light">
 
-<?php require('header.inc.php');?>
+<?php require('php/header.inc.php');?>
 
 
 <!-- Job description -->

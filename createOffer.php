@@ -1,9 +1,10 @@
 <?php
-require 'db_offer.inc.php';
+require 'php/db_offer.inc.php';
 
 use Offer\Offer;
 use Offer\OfferRepository;
 
+session_start();
 $offerRepository = new OfferRepository();
 
 $message = "";
@@ -23,15 +24,15 @@ if(isset($_POST['create'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style-createOffer.css">
-    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style-createOffer.css">
+    <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>JobPlanner - Create offer</title>
 </head>
 <body>
 
-<?php require('header.inc.php');?>
+<?php require('php/header.inc.php');?>
 
 <!-- Formulaire pour la soumission d'un CV-->
 <div class="registration-form">
