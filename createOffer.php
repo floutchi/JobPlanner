@@ -1,9 +1,10 @@
 <?php
-require 'db_offer.inc.php';
+require 'php/db_offer.inc.php';
 
 use Offer\Offer;
 use Offer\OfferRepository;
 
+session_start();
 $offerRepository = new OfferRepository();
 
 $message = "";
@@ -23,32 +24,15 @@ if(isset($_POST['create'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style-createOffer.css">
-    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style-createOffer.css">
+    <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>JobPlanner - Create offer</title>
 </head>
 <body>
 
-<!-- Navigation bar -->
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html">Deloitte - JobPlanner</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="main_nav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="nav-link" href="../index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.php#joboffer">Job offers</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
+<?php require('php/header.inc.php');?>
 
 <!-- Formulaire pour la soumission d'un CV-->
 <div class="registration-form">
