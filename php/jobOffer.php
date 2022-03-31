@@ -1,3 +1,77 @@
+<?php
+require 'db_offer.inc.php';
+require 'db_user.inc.php';
+
+use User\User;
+use Application\Application;
+use Application\ApplicationRepository;
+use Offer\OfferRepository;
+use User\UserRepository;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+$offerRepository = new OfferRepository();
+$userRepository = new UserRepository();
+
+$idOffer = null;
+
+if(!isset($_GET['idOffer'])) {
+    header('Location : index.php');
+} else {
+    $idOffer = $_GET['idOffer'];
+}
+
+$offer = $offerRepository->showOffer($idOffer);
+$message = "";
+
+if(isset($_POST['submit'])) {
+    $user = new User();
+    $user->nom = htmlentities($_POST['name']);
+    $user->prenom = htmlentities($_POST['firstname']);
+    $user->email = htmlentities($_POST['email']);
+    $user->phone = htmlentities($_POST['phone']);
+    $user->password = $user->generateRandomPassword();
+    $user->isRH = 0;
+
+    $userRepository->storeMember($user, $message);
+
+    $application = new Application();
+
+    //$diploma = htmlentities($_POST['diploma']);
+    //$disponibility = htmlentities($_POST['disponibility']);
+
+
+}
+
+function sendMail($user, &$message) {
+    try {
+        $mail = new PHPMailer();
+        $mail->CharSet = 'UTF-8';
+        $mail->setFrom('noReply@delloite.com');
+        $mail->addAddress($user->email);
+        $mail->isHTML(false);
+        $mail->Subject = "Your application to Deloitte";
+        $mail->Body = 'Thank you for applying to Deloitte,\n' .
+            'So that you can send an application again if necessary without having to ' .
+            'fill in the various forms again, we have created an account for you. '.
+            'You can log in with your email address and this password: ' . $user->password .
+            'Sincerely, the Deloitte team';
+        $mail->send();
+    } catch (Exception $e) {
+        $message = "An error occurred, please try later";
+    }
+}
+
+function downloadCV() {
+
+}
+
+function generateCVName($offer, $email) {
+    return $offer->titleOffer . "-" . $email . ".pdf";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +110,8 @@
 <div class="container marketing container-margin">
     <div class="row featurette">
         <div class="col-md-7">
-            <h2 class="featurette-heading title_societyColor">IT Developer.</h2>
-            <p class="lead">Recherche active d'un développeur dans le milieu du Software. Bonnes connaissances en Java
-                ainsi qu'en utilisation de
-                la technologie dotnet (6 conseillé). Bachelier minimum requis ainsi qu'une maitrise parfaite du
-                Français, Anglais. La maitrise et/ou compréhension
-                du néérlandais est également conseillé.</p>
+            <h2 class="featurette-heading title_societyColor"><?php echo $offer->titleOffer ?></h2>
+            <p class="lead"><?php echo $offer->descriptionOffer?></p>
         </div>
         <div class="col-md-5">
             <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
@@ -55,36 +125,37 @@
 
 <!-- Formulaire pour la soumission d'un CV-->
 <div class="registration-form">
-    <form>
-        <h2 class="mb-5">IT Developer</h2>
+    <form method="POST">
+        <h2 class="mb-5"><?php echo $offer->titleOffer ?></h2>
+        <h3><?php if(!empty($message)) echo $message ?></h3>
         <div class="form-group">
-            <input type="text" class="form-control item" id="name" placeholder="Name">
+            <input type="text" class="form-control item" id="name" placeholder="Name" name="name">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control item" id="firstname" placeholder="Firstname">
+            <input type="text" class="form-control item" id="firstname" placeholder="Firstname" name="firstname">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control item" id="email" placeholder="Mail address">
+            <input type="text" class="form-control item" id="email" placeholder="Mail address" name="email">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control item" id="phone-number" placeholder="Phone Number">
+            <input type="text" class="form-control item" id="phone-number" placeholder="Phone Number" name="phone">
         </div>
 
         <div class="form-group">
-            <select class="form-control item">
-                <option selected>Community college</option>
-                <option>Bachelor</option>
-                <option>Master</option>
+            <select class="form-control item" name="diploma">
+                <option selected value="Community College">Community college</option>
+                <option value="Bachelor">Bachelor</option>
+                <option value="Master">Master</option>
             </select>
         </div>
 
         <div class="form-group">
-            <select class="form-control item">
+            <select class="form-control item" name="disponibility">
                 <option selected>Able to start in</option>
-                <option>Immediatly</option>
-                <option>in 3 months (or less)</option>
-                <option>in 6 months (or less)</option>
-                <option>More</option>
+                <option value="Immediatly">Immediatly</option>
+                <option value="in 3 months (or less)">in 3 months (or less)</option>
+                <option value="in 6 months (or less)">in 6 months (or less)</option>
+                <option value="More">More</option>
             </select>
         </div>
 
@@ -93,7 +164,7 @@
         </div>
 
         <div class="form-group mb-2">
-            <button type="button" class="btn btn-block create-account">Submit</button>
+            <button type="submit" class="btn btn-block create-account" name="submit">Submit</button>
         </div>
     </form>
 </div>

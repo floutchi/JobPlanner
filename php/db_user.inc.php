@@ -32,7 +32,7 @@ class User {
             $n = rand(0, $alphaLength);
             $pass[] = $alphabet[$n];
         }
-        $this->password = implode($pass);
+        return implode($pass);
     }
 }
 
