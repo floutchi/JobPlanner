@@ -83,7 +83,7 @@ foreach ($resultat as $row) { ?>
                             <button class="btn btn-block btnColor" href="#">Télécharger CV</button>
                             <div class="d-flex flex-column ">
                                 <div class="d-flex flex-row mt-2 itemSpacing">
-                                    <a href="php/sendValidation.php?userId=<?php echo $user->idUser?>"><img src="../assets/person-check-fill.svg" alt="" width="30"
+                                    <a href="php/sendValidation.php?userId=<?php echo $user->idUser?>"><img src="assets/person-check-fill.svg" alt="" width="30"
                                                                                                         height="24"></a>
                                     <a href="index.php"><img src="../assets/person-x-fill.svg" alt="" width="30"
                                                              height="24"></a>
