@@ -75,3 +75,19 @@ body {
         line-height: 70px;
     }
 }
+
+.langageForm {
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+
+.langageTitle {
+    margin-bottom: 2%;
+    text-decoration-color: grey;
+    color: grey;
+}
+
+.titleElement {
+    color: darkolivegreen;
+    font-size: 15px;
+}

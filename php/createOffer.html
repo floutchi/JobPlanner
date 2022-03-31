@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style-createOffer.css.css">
+    <link rel="stylesheet" href="../css/style-createOffer.css">
     <script src="../js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>JobPlanner - Create offer</title>
@@ -13,15 +13,15 @@
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Deloitte - JobPlanner</a>
+            <a class="navbar-brand" href="../index.html">Deloitte - JobPlanner</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="main_nav">
                 <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#joboffer">Job offers</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#joboffer">Job offers</a></li>
                 </ul>
             </div>
         </div>
@@ -30,45 +30,36 @@
 
 <!-- Formulaire pour la soumission d'un CV-->
 <div class="registration-form">
-    <form>
-        <h2 class="mb-5">IT Developer</h2>
+    <form class="mt-5">
+        <h2 class="mb-5">Create offer</h2>
         <div class="form-group">
-            <input type="text" class="form-control item" id="name" placeholder="Name">
+            <input type="text" class="form-control item" id="title" placeholder="Title">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control item" id="firstname" placeholder="Firstname">
+            <input type="text" class="form-control item" id="desc" placeholder="Description">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control item" id="email" placeholder="Mail address">
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control item" id="phone-number" placeholder="Phone Number">
+            <input type="text" class="form-control item" id="contract" placeholder="Contract type">
         </div>
 
         <div class="form-group">
-            <select class="form-control item">
-                <option selected>Community college</option>
-                <option>Bachelor</option>
-                <option>Master</option>
-            </select>
+            <input type="Date" class="form-control item" id="date" placeholder="Date">
         </div>
 
         <div class="form-group">
-            <select class="form-control item">
-                <option selected>Able to start in</option>
-                <option>Immediatly</option>
-                <option>in 3 months (or less)</option>
-                <option>in 6 months (or less)</option>
-                <option>More</option>
-            </select>
+            <input type="challenges" class="form-control item" id="challenges" placeholder="Challenges">
         </div>
 
         <div class="form-group">
-            <input type="file" accept="image/*,.pdf" class="form-control item" id="cv" placeholder="Your cv">
+            <input type="text" class="form-control item" id="skills" placeholder="Skills">
+        </div>
+
+        <div class="form-group">
+            <input type="file" accept="image/*,.png, .jpg, .jpeg" class="form-control item" id="cv" placeholder="Photo">
         </div>
 
         <div class="form-group mb-2">
-            <button type="button" class="btn btn-block create-account">Submit</button>
+            <button type="button" class="btn btn-block create-account">Create</button>
         </div>
     </form>
 </div>
