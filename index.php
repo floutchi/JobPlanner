@@ -86,7 +86,7 @@ if(isset($_POST['login'])) {
         </div>
         <nav class="navbar navbar-light bg-light">
             <ul class="navbar-nav">
-            <li class="nav-item pe-2"><a href="php/createOffer.html"><img id="addOffer" src="assets/plus-circle-fill.svg" alt="" width="30" height="24"></a></li>
+            <li class="nav-item pe-2"><a href="php/createOffer.php"><img id="addOffer" src="assets/plus-circle-fill.svg" alt="" width="30" height="24"></a></li>
             <li class="nav-item">
                 <a href="#" id="loginbtn"><img id="connectionManager" href="#" src="assets/person-fill.svg" alt="" width="30" height="24"></a></li>
             </ul>
