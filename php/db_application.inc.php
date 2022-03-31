@@ -39,11 +39,8 @@ class ApplicationRepository {
             $stmt->bindValue(':diploma', $application->diploma);
             $stmt->bindValue(':language', $application->language);
 
-            var_dump($stmt);
-
-
             if ($stmt->execute()){
-                $message .= 'Your application has been sent successfully. A confirmation email has been sent to you' ;
+                $message .= "Your application has been sent successfully. A confirmation email has been sent to you\n" ;
                 $application->idApplication = $bdd->lastInsertId();
                 $noError = true;
             } else {

@@ -65,7 +65,6 @@ if(isset($_POST['submit'])) {
 
     $applicationRepository->storeApplication($application, $message);
 
-
 }
 
 function sendNewUserMail($user, &$message) {
@@ -107,7 +106,7 @@ function sendApplicationMail($user, &$message) {
 function downloadCV($offer, $email) {
     $fileName = generateCVName($offer, $email);
 
-    move_uploaded_file($_FILES['cv']['tmp_name'], "./uploads/$fileName");
+    move_uploaded_file($_FILES['cv']['tmp_name'], "../uploads/$fileName");
     return "./uploads/$fileName";
 }
 
@@ -172,9 +171,9 @@ function generateCVName($offer, $email) {
 
 <!-- Formulaire pour la soumission d'un CV-->
 <div class="registration-form">
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <h2 class="mb-5"><?php echo $offer->titleOffer ?></h2>
-        <h3><?php if(!empty($message)) echo $message ?></h3>
+        <h6 style="color: #0f5132"><?php if(!empty($message)) echo $message ?></h6>
 
         <h6>Name</h6>
         <div class="form-group">
@@ -193,6 +192,11 @@ function generateCVName($offer, $email) {
             <input type="text" class="form-control item" id="phone-number" placeholder="Phone Number" name="phone">
         </div>
 
+        <h6>Motivations</h6>
+        <div class="form-group">
+            <textarea name="motivations" class="form-control item" placeholder="Your motivations (optional)"></textarea>
+        </div>
+
         <h6>Diploma</h6>
         <div class="form-group">
             <select class="form-control item" name="diploma">
@@ -201,6 +205,31 @@ function generateCVName($offer, $email) {
                 <option value="Master">Master</option>
             </select>
         </div>
+
+        <h6>Your spoken languages</h6>
+        <div class="form-group">
+            <label style="display: block">
+                <input type="checkbox" name="langage[]" style="padding-right: 30%" value="FR">
+                <label class="langageForm">French</label>
+            </label>
+
+            <label style="display: block">
+                <input type="checkbox" name="langage[]" style="padding-right: 30%" value="EN">
+                <label class="langageForm">English</label>
+            </label>
+
+            <label style="display: block">
+                <input type="checkbox" name="langage[]" style="padding-right: 30%" value="NE">
+                <label class="langageForm">Netherlands</label>
+            </label>
+
+            <label style="display: block">
+                <input type="checkbox" name="langage[]" style="padding-right: 30%" value="DE">
+                <label class="langageForm">Allemand</label>
+            </label>
+        </div>
+
+        <br>
 
         <h6>Your disponibility</h6>
         <div class="form-group">
@@ -216,35 +245,6 @@ function generateCVName($offer, $email) {
         <h6>CV</h6>
         <div class="form-group">
             <input type="file" accept="image/*,.pdf" class="form-control item" id="cv" placeholder="Your cv" name="cv">
-        </div>
-
-        <h6>Motivations</h6>
-        <div class="form-group">
-            <textarea name="motivations" class="form-control item" placeholder="Your motivations (optional)"></textarea>
-        </div>
-
-
-        <h6>Your spoken languages</h6>
-        <div class="form-group">
-            <label style="display: block">
-                <input type="checkbox" name="langage[]" style="padding-right: 30%" value="A">
-                <label class="langageForm">French</label>
-            </label>
-
-            <label style="display: block">
-                <input type="checkbox" name="langage[]" style="padding-right: 30%" value="A">
-                <label class="langageForm">English</label>
-            </label>
-
-            <label style="display: block">
-                <input type="checkbox" name="langage[]" style="padding-right: 30%" value="A">
-                <label class="langageForm">Netherlands</label>
-            </label>
-
-            <label style="display: block">
-                <input type="checkbox" name="langage[]" style="padding-right: 30%" value="A">
-                <label class="langageForm">Allemand</label>
-            </label>
         </div>
 
 

@@ -30,17 +30,16 @@ class OfferRepository
         try {
             $bdd = DBLink::connect2db(MYDB, $message);
             $stmt = $bdd->prepare("INSERT INTO " . self::TABLE_NAME . " 
-            (title, description, skills, jobStartDate, contractType, status) 
-            VALUES (:title, :description, :skills, :jobStartDate, :contractType, :status)");
-            $stmt->bindValue(':title', $offer->title);
-            $stmt->bindValue(':description', $offer->description);
-            $stmt->bindValue(':skills', $offer->skills);
+            (titleOffer, descriptionOffer, skillsOffer, jobStartDate, contractType) 
+            VALUES (:title, :description, :skills, :jobStartDate, :contractType)");
+            $stmt->bindValue(':title', $offer->titleOffer);
+            $stmt->bindValue(':description', $offer->descriptionOffer);
+            $stmt->bindValue(':skills', $offer->skillsOffer);
             $stmt->bindValue(':jobStartDate', $offer->jobStartDate);
             $stmt->bindValue(':contractType', $offer->contractType);
-            $stmt->bindValue(':status', $offer->status);
 
             if ($stmt->execute()) {
-                $message .= 'Votre compte a bien été créé';
+                $message .= 'The offer has been created';
                 $offer->idOffer = $bdd->lastInsertId();
                 $noError = true;
             } else {
