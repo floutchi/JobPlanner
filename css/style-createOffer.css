@@ -58,3 +58,9 @@
         line-height: 70px;
     }
 }
+
+.infoText {
+    margin-top: 3%;
+    font-size: 12px;
+    font-style: italic;
+}
