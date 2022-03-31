@@ -1,23 +1,30 @@
 <?php
 
 require 'db_user.inc.php';
+require 'db_application.inc.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/Exception.php';
 
 use User\UserRepository;
+use Application\ApplicationRepository;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 $idUser = $_GET['idUser'];
+$idApplication = $_GET['applId'];
 
 $uRepository = new UserRepository();
+$aRepository = new ApplicationRepository();
 
 $message = "";
 $user = $uRepository->getUserById($idUser, $message);
+$aRepository->updateStatus($idApplication, 1);
+
+
 
 sendMail($user);
 
-header('Location :consultOffer.php');
+header('Location: ../index.php');
 
 function sendMail($user) {
     try {

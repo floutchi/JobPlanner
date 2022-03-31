@@ -31,14 +31,14 @@ class OfferRepository
         try {
             $bdd = DBLink::connect2db(MYDB, $message);
             $stmt = $bdd->prepare("INSERT INTO " . self::TABLE_NAME . " 
-            (titleOffer, descriptionOffer, skillsOffer, jobStartDate, contractType, $idRH) 
+            (titleOffer, descriptionOffer, skillsOffer, jobStartDate, contractType, idRH) 
             VALUES (:title, :description, :skills, :jobStartDate, :contractType, :idRH)");
             $stmt->bindValue(':title', $offer->titleOffer);
             $stmt->bindValue(':description', $offer->descriptionOffer);
             $stmt->bindValue(':skills', $offer->skillsOffer);
             $stmt->bindValue(':jobStartDate', $offer->jobStartDate);
             $stmt->bindValue(':contractType', $offer->contractType);
-            $stmt->bindValue(':idRH', $offer->$idRH);
+            $stmt->bindValue(':idRH', $offer->idRH);
 
             if ($stmt->execute()) {
                 $message .= 'The offer has been created';

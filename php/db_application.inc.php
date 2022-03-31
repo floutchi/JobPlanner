@@ -16,6 +16,7 @@ class Application {
     public $cvURL;
     public $diploma;
     public $language;
+    public $status;
 }
 
 class ApplicationRepository {
@@ -40,7 +41,7 @@ class ApplicationRepository {
             $stmt->bindValue(':language', $application->language);
 
             if ($stmt->execute()){
-                $message .= "Your application has been sent successfully. A confirmation email has been sent to you\n" ;
+                $message .= "Your application has been sent successfully. A confirmation email has been sent to you.\n" ;
                 $application->idApplication = $bdd->lastInsertId();
                 $noError = true;
             } else {
@@ -72,8 +73,22 @@ class ApplicationRepository {
         return $result;
     }
 
-    public function showtest($idOffer) {
-
+    public function updateStatus($idApplication, $val) {
+        $noError = false;
+        $bdd = null;
+        try {
+            $bdd = DBLink::connect2db(MYDB, $message);
+            $stmt = $bdd->prepare("UPDATE " . self::TABLE_NAME . " SET status =:status WHERE idApplication = :idApplication");
+            $stmt->bindValue(':idApplication', $idApplication);
+            $stmt->bindValue(':status', $val);
+            if ($stmt->execute()) {
+                $noError = true;
+            }
+        } catch (Exception $e) {
+            $message .= $e->getMessage() . '<br>';
+        }
+        DBLink::disconnect($bdd);
+        return $noError;
     }
 
 }

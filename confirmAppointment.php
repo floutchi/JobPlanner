@@ -2,6 +2,8 @@
 
 $message = "";
 
+var_dump($_POST);
+
 if(isset($_POST['submit'])) {
     $message = "Your appointment has been made!";
 }
@@ -23,11 +25,12 @@ if(isset($_POST['submit'])) {
 
 <!-- Formulaire pour la soumission d'une heure.-->
 <div class="registration-form">
-    <form class="mt-5">
+    <form class="mt-5" method="POST">
         <h2 class="mb-5">Confirm your appointement</h2>
-        <p>Please select a schedule below for an interview.</p>
 
-        <?php if(empty($message)) echo '<p style="color: #146c43">'.$message.'</p>'?>
+        <?php if(!empty($message)) echo '<p style="color: #146c43">'.$message.'</p>'?>
+
+        <p>Please select a schedule below for an interview.</p>
 
         <div class="form-group">
             <label style="display: block">

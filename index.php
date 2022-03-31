@@ -157,6 +157,7 @@ if(isset($_POST['login'])) {
 
 <!-- All offers -->
 <div class="container-md"><div class="row" id="joboffer">
+        <h2 class="featurette-heading title_societyColor">Our job offers</h2>
 
         <?php
         while($row = $resultat->fetch(PDO::FETCH_ASSOC)) {

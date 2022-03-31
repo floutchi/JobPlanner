@@ -7,6 +7,7 @@ use Offer\OfferRepository;
 use User\UserRepository;
 
 session_start();
+
 $offerRepository = new OfferRepository();
 $userRepository = new UserRepository();
 
@@ -19,7 +20,7 @@ if(isset($_POST['create'])) {
     $offer->contractType = htmlentities($_POST['contract']);
     $offer->jobStartDate = htmlentities($_POST['startDate']);
     $offer->skillsOffer = htmlentities($_POST['skills']);
-    $offer->idRH = htmlentities($_SESSION['idUser']);
+    $offer->idRH = intval($_SESSION['idUser']);
 
     $offerRepository->storeOffer($offer, $message);
 }

@@ -32,9 +32,18 @@
         </div>
         <nav class="navbar navbar-light bg-light">
             <ul class="navbar-nav">
-            <li class="nav-item pe-2"><a href="../createOffer.php"><img id="addOffer" src="assets/plus-circle-fill.svg" alt="" width="30" height="24"></a></li>
+<?php
+        if(isset($_SESSION['isRH'])) {
+            if($_SESSION['isRH'] == 1) {
+                echo '
+                    <li class="nav-item pe-2">
+                        <a href="createOffer.php"><img id="addOffer" src="assets/plus-circle-fill.svg" alt="" width="30" height="24"></a>
+                    </li>';
+            }
+        } ?>
             <li class="nav-item">
-                <a href="#" id="loginbtn"><img id="connectionManager" href="#" src="assets/person-fill.svg" alt="" width="30" height="24"></a></li>
+                <a href="#" id="loginbtn"><img id="connectionManager" href="#" src="assets/person-fill.svg" alt="" width="30" height="24"></a>
+            </li>
             </ul>
         </nav>
     </nav>
