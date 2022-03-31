@@ -30,9 +30,6 @@ if(isset($_POST['login'])) {
                 $_SESSION['idUser'] = $user->idUser;
                 $_SESSION['isRH'] = $user->isRH;
 
-
-
-                var_dump($_SESSION);
                 $message = "";
                 header('location:index.php');
             }
@@ -212,7 +209,7 @@ if(isset($_POST['login'])) {
              height="140">
                 <h2>'. $row['titleOffer'] .'</h2>
                 <p>'. $row['descriptionOffer'] .'</p>
-                <p><a class="btn btn-secondary btn_societyColor" href="jobOffer.php?idOffer='. $row['idOffer'] .'" role="button">Postuler »</a></p>
+                <p><a class="btn btn-secondary btn_societyColor" href="php/jobOffer.php?idOffer='. $row['idOffer'] .'" role="button">Postuler »</a></p>
             </div>';
         }
         ?>

@@ -27,8 +27,9 @@ $resultat = $offerRepository->showOffers();
 
         <?php
         while($row = $resultat->fetch(PDO::FETCH_ASSOC)) {
-            echo
-            '<div class="col-lg-4">
+            if($_SESSION['idUser'] == $row['idRH']) {
+                echo
+                    '<div class="col-lg-4">
             <img class="rounded-circle" src="img/deloitte.jpeg" alt="Generic placeholder image" width="140"
                  height="140">
             <h2>' . $row['titleOffer'] .'</h2>
@@ -46,6 +47,7 @@ $resultat = $offerRepository->showOffers();
                     </li>
                 </ul>
             </div>';
+            }
         }
         ?>
 </div>
