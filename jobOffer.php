@@ -108,7 +108,7 @@ function sendApplicationMail($user, &$message) {
 function downloadCV($offer, $email) {
     $fileName = generateCVName($offer, $email);
 
-    move_uploaded_file($_FILES['cv']['tmp_name'], "../uploads/$fileName");
+    move_uploaded_file($_FILES['cv']['tmp_name'], "uploads/$fileName");
     return "./uploads/$fileName";
 }
 

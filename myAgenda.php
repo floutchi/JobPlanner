@@ -5,9 +5,9 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style-agenda.css">
-    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style-agenda.css">
+    <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>My agenda</title>
 </head>
@@ -17,9 +17,9 @@ session_start();
 
 <div class="container">
 
-    <div class="btn-div"><button class="btn" type="button" title="Add evenement"><img id="newDate" src="../assets/calendar-plus-fill.svg" alt=""
+    <div class="btn-div"><button class="btn" type="button" title="Add evenement"><img id="newDate" src="assets/calendar-plus-fill.svg" alt=""
                                                                                                    width="50" height="40"></button>
-    <button class="btn" type="button" title="Export calendar"><img id="export" src="../assets/box-arrow-up-right.svg" alt=""
+    <button class="btn" type="button" title="Export calendar"><img id="export" src="assets/box-arrow-up-right.svg" alt=""
                                                                                       width="50" height="40"></button></div>
 
 

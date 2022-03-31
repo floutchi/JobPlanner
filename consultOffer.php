@@ -5,9 +5,9 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style-candidateList.css">
-    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style-candidateList.css">
+    <script src="js/bootstrap.min.js"></script>
     <title>Offer</title>
 </head>
 <body class="bg-light">
@@ -29,7 +29,7 @@ session_start();
         <div class="col-md-5">
             <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
                  style="width: 250px; height: 250px;"
-                 src="../img/deloitte2.jpg"
+                 src="img/deloitte2.jpg"
                  data-holder-rendered="true">
         </div>
     </div>
@@ -55,8 +55,8 @@ session_start();
                     <div class="d-flex col-md-12 justify-content-between">
                         <button class="btn btn-block btnColor" href="#">Télécharger CV</button>
                         <div class="d-flex flex-row mt-2">
-                            <a href="index.php"><img src="../assets/person-check-fill.svg" alt="" width="30" height="24"></a>
-                            <a href="index.php"><img src="../assets/person-x-fill.svg" alt="" width="30" height="24"></a>
+                            <a href="index.php"><img src="assets/person-check-fill.svg" alt="" width="30" height="24"></a>
+                            <a href="index.php"><img src="assets/person-x-fill.svg" alt="" width="30" height="24"></a>
                         </div>
                     </div>
                 </div>
