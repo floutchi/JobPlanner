@@ -54,7 +54,7 @@ class UserRepository {
             $stmt->bindValue(':phone', $member->phone);
             $stmt->bindValue(':password', $member->password);
             if ($stmt->execute()){
-                $message .= 'Votre compte a bien été créé' ;
+                $message .= "An account has been made for you, check your emails.\n" ;
                 $member->idUser = $bdd->lastInsertId();
                 $noError = true;
             } else {
@@ -68,6 +68,8 @@ class UserRepository {
         DBLink::disconnect($bdd);
         return $noError;
     }
+
+
 
     public function existInDb($email, &$message) {
         $result = false;
