@@ -1,8 +1,6 @@
 <?php
 require 'db_offer.inc.php';
 
-require('header.inc.php');
-
 use Offer\OfferRepository;
 
 $offerRepository = new OfferRepository();
@@ -21,7 +19,7 @@ $resultat = $offerRepository->showOffers();
     <title>My offers</title>
 </head>
 <body>
-
+<?php require('header.inc.php');?>
 <!-- My offers -->
 <div class="container-md">
     <div class="row" id="joboffer">

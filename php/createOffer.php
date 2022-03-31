@@ -1,6 +1,5 @@
 <?php
 require 'db_offer.inc.php';
-require('header.inc.php');
 
 use Offer\Offer;
 use Offer\OfferRepository;
@@ -31,6 +30,8 @@ if(isset($_POST['create'])) {
     <title>JobPlanner - Create offer</title>
 </head>
 <body>
+
+<?php require('header.inc.php');?>
 
 <!-- Formulaire pour la soumission d'un CV-->
 <div class="registration-form">

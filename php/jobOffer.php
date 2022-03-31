@@ -5,7 +5,6 @@ require 'db_application.inc.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/Exception.php';
 
-require('header.inc.php');
 
 
 use User\User;
@@ -127,6 +126,8 @@ function generateCVName($offer, $email) {
     <meta charset="UTF-8">
     <title>Offer</title>
 </head>
+
+<?php require('header.inc.php');?>
 
 <body class="bg-light">
 

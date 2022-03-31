@@ -1,7 +1,4 @@
-<?php
-require ("header.inc.php");
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +9,8 @@ require ("header.inc.php");
     <title>Offer</title>
 </head>
 <body class="bg-light">
+
+<?php require('header.inc.php');?>
 
 
 <!-- Job description -->

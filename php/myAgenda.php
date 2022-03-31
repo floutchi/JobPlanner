@@ -1,7 +1,3 @@
-<?php
-require('header.inc.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +9,7 @@ require('header.inc.php');
 </head>
 <body>
 
-
+<?php require('header.inc.php');?>
 
 <div class="container">
 

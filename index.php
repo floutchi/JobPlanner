@@ -2,8 +2,6 @@
 require 'php/db_offer.inc.php';
 require 'php/db_user.inc.php';
 
-require('php/header.inc.php');
-
 use Offer\OfferRepository;
 use User\User;
 use User\UserRepository;
@@ -31,12 +29,8 @@ if(isset($_POST['login'])) {
                 $_SESSION['email'] = $user->email;
                 $_SESSION['idUser'] = $user->idUser;
                 $_SESSION['isRH'] = $user->isRH;
-
-
-
                 var_dump($_SESSION);
                 $message = "";
-                header('location:index.php');
             }
         } else {
             header('location:index.php?id=error');
@@ -58,6 +52,8 @@ if(isset($_POST['login'])) {
     <title>Home - JobPlanner</title>
 </head>
 <body>
+
+<?php require('php/header.inc.php');?>
 
 <!-- Office image -->
 <div class="container-fluid">
