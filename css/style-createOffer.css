@@ -1,20 +1,3 @@
-.btn_societyColor {
-    background-color: green;
-}
-
-.title_societyColor {
-    color: green;
-}
-
-.separation {
-    margin-bottom: 50%;
-}
-
-body {
-    font-family: "Poppins", sans-serif;
-    height: 100vh;
-}
-
 .registration-form{
     padding: 50px 0;
 }
@@ -74,29 +57,4 @@ body {
         font-size: 30px;
         line-height: 70px;
     }
-}
-
-/** Style My offers **/
-
-.col-lg-4{
-    margin-top: 10%;
-}
-
-.edelete{
-    margin-left: -10%;
-}
-.langageForm {
-    margin-left: 2%;
-    margin-bottom: 2%;
-}
-
-.langageTitle {
-    margin-bottom: 2%;
-    text-decoration-color: grey;
-    color: grey;
-}
-
-.titleElement {
-    color: darkolivegreen;
-    font-size: 15px;
 }

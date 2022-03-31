@@ -58,7 +58,7 @@ $resultat = $offerRepository->showOffers();
             <p>'. $row['descriptionOffer'] .'</p>
             <div class="edelete">
                 <ul >
-                    <li class="list-inline-item"><a class="btn btn-secondary btn_societyColor" href="#" role="button">View application »</a></li>
+                    <li class="list-inline-item"><a class="btn btn-secondary btn_societyColor" href="consultOffer.html" role="button">View application »</a></li>
                     <li class="list-inline-item">
                         <button class="btn" type="button" title="Edit"><img id="edit" src="../assets/pencil-fill.svg" alt=""
                                                                             width="20" height="19"></button>

@@ -7,7 +7,7 @@ $offerRepository = new OfferRepository();
 
 $resultat = $offerRepository->showOffers();
 
-?>
+?>@
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +15,7 @@ $resultat = $offerRepository->showOffers();
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-connection.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script defer src="js/home.mjs"></script>
     <meta charset="UTF-8">
@@ -40,13 +41,15 @@ $resultat = $offerRepository->showOffers();
                 </ul>
             </div>
         </div>
-        <nav class="navbar navbar-light bg-light bg-opacity-100 justify-content-between">
-           <img id="connectionManager" src="assets/person-fill.svg" alt="" width="30" height="24">
+        <nav class="navbar navbar-light bg-light">
+            <ul class="navbar-nav">
+            <li class="nav-item pe-2"><a href="php/createOffer.html"><img id="addOffer" src="assets/plus-circle-fill.svg" alt="" width="30" height="24"></a></li>
+            <li class="nav-item">
+                <a href="#"><img id="connectionManager" href="#" src="assets/person-fill.svg" alt="" width="30" height="24"></a></li>
+            </ul>
         </nav>
     </nav>
 </div>
-
-
 
 <!-- Office image -->
 <div class="container-fluid">
