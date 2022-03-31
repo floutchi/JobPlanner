@@ -8,11 +8,6 @@ icon.addEventListener('click', () => {
     item.hidden = false;
 })
 
-body.addEventListener('click', () => {
-    if (item.hidden == false) {
-        item.hidden == true;
-    }
-})
 
 body.addEventListener('dblclick', () => {
     item.hidden = true;

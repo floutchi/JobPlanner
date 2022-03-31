@@ -1,0 +1,30 @@
+.row-striped:nth-of-type(odd){
+    background-color: #efefef;
+    border-left: 4px black solid;
+}
+
+.row-striped:nth-of-type(even){
+    background-color: #ffffff;
+    border-left: 4px #efefef solid;
+}
+
+.row-striped {
+    padding: 15px 0;
+}
+
+.radiusAgenda {
+    border-radius: 30px;
+    background-color: darkgreen;
+}
+
+.container{
+    margin-top: 6%;
+}
+
+.text-uppercase{
+    color: green;
+}
+
+.btn-div{
+    text-align: center;
+}
