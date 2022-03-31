@@ -1,38 +1,33 @@
+<?php
+
+$message = "";
+
+if(isset($_POST['submit'])) {
+    $message = "Your appointment has been made!";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style-createOffer.css">
-    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style-createOffer.css">
+    <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>Confirmation</title>
 </head>
 <body>
 
-<!-- Navigation bar -->
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="../index.php">Deloitte - JobPlanner</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="main_nav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="nav-link" href="../index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../index.php#joboffer">Job offers</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
+<?php require('php/header.inc.php');?>
 
 <!-- Formulaire pour la soumission d'une heure.-->
 <div class="registration-form">
     <form class="mt-5">
         <h2 class="mb-5">Confirm your appointement</h2>
         <p>Please select a schedule below for an interview.</p>
+
+        <?php if(empty($message)) echo '<p style="color: #146c43">'.$message.'</p>'?>
 
         <div class="form-group">
             <label style="display: block">
@@ -59,7 +54,7 @@
         <p class="infoText">Your interview will only take place by video conference. To find out how this works, please read the email that was sent to you.</p>
 
         <div class="form-group mt-3">
-            <button type="button" class="btn btn-block create-account">Submit</button>
+            <button name="submit" type="submit" class="btn btn-block create-account">Submit</button>
         </div>
     </form>
 </div>
