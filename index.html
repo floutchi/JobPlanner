@@ -3,7 +3,9 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-connection.css">
     <script src="js/bootstrap.min.js"></script>
+    <script defer src="js/home.mjs"></script>
     <meta charset="UTF-8">
     <title>Home - JobPlanner</title>
 </head>
@@ -26,16 +28,36 @@
             </div>
         </div>
         <nav class="navbar navbar-light bg-light bg-opacity-100 justify-content-between">
-           <a href="connexion.html"><img src="assets/person-fill.svg" alt="" width="30" height="24"> </a>
+           <img id="connectionManager" src="assets/person-fill.svg" alt="" width="30" height="24">
         </nav>
     </nav>
 </div>
 
+
+
 <!-- Office image -->
 <div class="container-fluid">
     <div id="myCarousel" class="carousel" data-ride="carousel">
+        <!-- Popup image -->
+        <div class="wrapper fadeInDown connectionPosition">
+            <div id="formContent">
+                <form>
+                    <h1 class="popupTitle">Sign in</h1>
+                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="Login">
+                    <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
+                    <input type="submit" class="fadeIn fourth" value="Log In">
+                </form>
+
+                <div id="formFooter">
+                    <a class="underlineHover" href="#">Forgot Password</a>
+                </div>
+
+            </div>
+        </div>
+
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
