@@ -59,6 +59,7 @@ $resultat = $offerRepository->showOffers();
     ?>
     </div>
 </div>
+<?php require ('php/footer.inc.php')?>
 
 </body>
 </html>

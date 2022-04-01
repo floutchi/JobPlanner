@@ -45,7 +45,7 @@ session_start();
 
 
 </div>
-
+<?php require ('php/footer.inc.php')?>
 
 </body>
 </html>

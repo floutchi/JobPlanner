@@ -129,7 +129,6 @@ foreach ($resultat as $row) { ?>
         </div>
     </div>
 <?php } ?>
-
-
+        <?php require ('php/footer.inc.php')?>
 </body>
 </html>

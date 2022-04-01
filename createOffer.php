@@ -77,6 +77,6 @@ if(isset($_POST['create'])) {
         </div>
     </form>
 </div>
-
+<?php require ('php/footer.inc.php')?>
 </body>
 </html>

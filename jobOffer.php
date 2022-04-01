@@ -236,6 +236,6 @@ function generateCVName($offer, $email) {
         </div>
     </form>
 </div>
-
+<?php require ('php/footer.inc.php')?>
 </body>
 </html>
