@@ -61,12 +61,6 @@ if(isset($_POST['create'])) {
         <div class="form-group">
             <input type="text" name="heureFin" class="form-control item" id="heureFin" placeholder="00:00">
         </div>
-
-        <h6>Meeting URL</h6>
-        <div class="form-group">
-            <input type="url" name="url" class="form-control item" id="url">
-        </div>
-
         <div class="form-group mb-2">
             <button type="submit" name="create" class="btn btn-block create-account">Create</button>
         </div>
