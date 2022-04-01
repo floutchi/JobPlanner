@@ -57,6 +57,22 @@ $resultat = $repository->showApplicationByOffer($id);
     <hr class="featurette-divider">
 </div>
 
+<div class="container" style="padding-bottom: 10px; display: flex">
+    <select class="form-select" aria-label="Filtrer by" style="width: 10%">
+        <option selected>Filter by</option>
+        <option>Language</option>
+        <option>Diploma</option>
+    </select>
+    <select class="form-select" aria-label="Filter value" style="width: 10%">
+        <option selected> Filter value</option>
+        <option>French</option>
+        <option>English</option>
+        <option>German</option>
+        <option>Netherlands</option>
+
+    </select>
+</div>
+
 
 <!-- Candidats -->
 <?php
