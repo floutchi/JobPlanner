@@ -42,9 +42,14 @@
                     }
                 } ?>
                 <li class="nav-item pe-3">
-                    <a href="searchPostulate.php" id="loginbtn"><img id="searchAnOffer" href="#"
+                    <a href="searchPostulate.php" id="searchOffer"><img id="searchAnOffer" href="#"
                                                                          src="assets/search.svg" alt="" width="30"
                                                                          height="24"></a>
+                </li>
+
+                <li class="nav-item pe-3">
+                    <a href="#" id="askquestions"><img id="helpPage" href="#" src="assets/question-circle-fill.svg" alt=""
+                                                   width="30" height="24"></a>
                 </li>
                 <li class="nav-item pe-3">
                     <a href="#" id="loginbtn"><img id="connectionManager" href="#" src="assets/person-fill.svg" alt=""
