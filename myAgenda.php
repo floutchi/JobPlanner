@@ -17,10 +17,14 @@ session_start();
 
 <div class="container">
 
-    <div class="btn-div"><button class="btn" type="button" title="Add evenement"><img id="newDate" src="assets/calendar-plus-fill.svg" alt=""
-                                                                                                   width="50" height="40"></button>
-    <button class="btn" type="button" title="Export calendar"><img id="export" src="assets/box-arrow-up-right.svg" alt=""
-                                                                                      width="50" height="40"></button></div>
+    <div class="btn-div">
+        <button class="btn" type="button" title="Add evenement"><a href="createEvenement.php"><img id="newDate" src="assets/calendar-plus-fill.svg"
+                                                                                                   href="createEvenement.php" alt="" width="50"
+                                                                                                   height="40"></a></button>
+        <button class="btn" type="button" title="Export calendar"><img id="export" src="assets/box-arrow-up-right.svg"
+                                                                       alt=""
+                                                                       width="50" height="40"></button>
+    </div>
 
 
 
