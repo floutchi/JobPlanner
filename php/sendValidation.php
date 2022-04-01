@@ -10,8 +10,11 @@ use Application\ApplicationRepository;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-$idUser = $_GET['idUser'];
+$idUser = $_GET['userId'];
+$idOffer = $_GET['offerId'];
 $idApplication = $_GET['applId'];
+
+var_dump($idApplication);
 
 $uRepository = new UserRepository();
 $aRepository = new ApplicationRepository();
@@ -21,12 +24,11 @@ $user = $uRepository->getUserById($idUser, $message);
 $aRepository->updateStatus($idApplication, 1);
 
 
+sendMail($user, $idOffer);
 
-sendMail($user);
+header('Location: ../myOffers.php');
 
-header('Location: ../index.php');
-
-function sendMail($user) {
+function sendMail($user, $idOffer) {
     try {
         $mail = new PHPMailer();
         $mail->CharSet = 'UTF-8';
@@ -39,7 +41,7 @@ function sendMail($user) {
         The Human Resources team would like to invite you to choose a suitable time to attend a job interview via Teams.
 
         Please use this link to select a slot: 
-        https://www.jobplanner.deloitte.com\confirmAppointment.php?
+        https://www.jobplanner.deloitte.com\confirmAppointment.php?" . $idOffer ."
 
         Kind regards,
         The Deloitte team

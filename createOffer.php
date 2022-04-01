@@ -39,11 +39,14 @@ if(isset($_POST['create'])) {
 
 <?php require('php/header.inc.php');?>
 
+
 <!-- Formulaire pour la soumission d'un CV-->
 <div class="registration-form">
+    <div style="display: flex; justify-content: center; margin-top: 30px">
+        <h5 style="color: #146c43"><?php if(!empty($message)) echo $message?></h5>
+    </div>
     <form class="mt-5" method="POST">
         <h2 class="mb-5">Create offer</h2>
-        <h5 style="color: #146c43"><?php if(!empty($message)) echo $message?></h5>
 
         <h6>Title</h6>
         <div class="form-group">
@@ -67,11 +70,6 @@ if(isset($_POST['create'])) {
         <h6>Skills</h6>
         <div class="form-group">
             <input type="text" name="skills" class="form-control item" id="skills" placeholder="Skills">
-        </div>
-
-        <h6>Image</h6>
-        <div class="form-group">
-            <input type="file" accept="image/*,.png, .jpg, .jpeg" class="form-control item" id="cv" placeholder="Photo">
         </div>
 
         <div class="form-group mb-2">

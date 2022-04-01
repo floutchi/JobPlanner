@@ -4,6 +4,8 @@ session_start();
 
 use Offer\OfferRepository;
 
+session_start();
+
 $offerRepository = new OfferRepository();
 
 $resultat = $offerRepository->showOffers();
@@ -21,22 +23,20 @@ $resultat = $offerRepository->showOffers();
 </head>
 <body>
 
-<!-- Navigation bar -->
 <?php require('php/header.inc.php');?>
-
 
 <!-- My offers-->
 <div class="container-md">
     <div class="row" id="joboffer">
     <?php
     while ($row = $resultat->fetch(PDO::FETCH_ASSOC)) {
-
-        echo '
+        if ($_SESSION['idUser'] == $row['idRH']) {
+            echo '
              <div class="col-lg-4">
             <img class="rounded-circle" src="img/deloitte.jpeg" alt="Generic placeholder image" width="140"
                  height="140">
-            <h2>' . $row['titleOffer'] .'</h2>
-            <p>'. $row['descriptionOffer'] .'</p>
+            <h2>' . $row['titleOffer'] . '</h2>
+            <p>' . $row['descriptionOffer'] . '</p>
 
             <div class="edelete">
                 <ul >
@@ -54,6 +54,7 @@ $resultat = $offerRepository->showOffers();
                     </li>
                 </ul>
             </div></div>';
+        }
     }
     ?>
     </div>

@@ -54,7 +54,7 @@ class UserRepository {
             $stmt->bindValue(':phone', $member->phone);
             $stmt->bindValue(':password', $member->password);
             if ($stmt->execute()){
-                $message .= "An account has been made for you, check your emails.\n" ;
+                $message .= "An account has been made for you, check your emails. <br>" ;
                 $member->idUser = $bdd->lastInsertId();
                 $noError = true;
             } else {
