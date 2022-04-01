@@ -81,9 +81,9 @@ foreach ($resultat as $row) { ?>
     <div class="container">
         <div class="row mb-2">
             <div class="col-md-6">
-                <div class="card mb-4 box-shadow h-md-250"
-                     <?php if($row->status !== null) echo 'style="background-color: #1d4d00"' ?>>
+                <div class="card mb-4 box-shadow h-md-250">
                     <div class="card-body d-flex flex-column">
+
                         <strong class="d-inline-block mb-2 colorForItems"><?php echo $row->diploma ?></strong>
                         <h3 class="mb-0">
                             <?php
@@ -109,6 +109,10 @@ foreach ($resultat as $row) { ?>
                                         <a href="index.php">
                                         <img src="assets/person-x-fill.svg" alt="" width="30" height="24">
                                         </a>
+                                        ';
+                                    } else {
+                                        echo '
+                                        <button class="btn" style="font-size: 25px; color: #21b471">Validated</button>
                                         ';
                                     }?>
 

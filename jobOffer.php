@@ -53,7 +53,9 @@ if(isset($_POST['submit'])) {
     $application->idOffer = $idOffer;
     $application->motivation = htmlentities($_POST['motivations']);
     $application->ableToStartIn = htmlentities($_POST['disponibility']);
-    $application->cvURL = downloadCV($offer, $user->email);
+    if(!file_exists($_FILES['cv']['tmp_name'])) {
+        $application->cvURL = downloadCV($offer, $user->email);
+    }
     $application->diploma = htmlentities($_POST['diploma']);
     $selectedLanguages = "";
     foreach ($_POST['langage'] as $s) {
@@ -141,19 +143,20 @@ function generateCVName($offer, $email) {
         </div>
         <div class="col-md-5">
             <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="500x500"
-                 style="width: 250px; height: 250px;"
                  src="img/deloitte2.jpg"
                  data-holder-rendered="true">
         </div>
     </div>
     <hr class="featurette-divider">
 </div>
+<div style="display: flex; justify-content: center">
+    <h4 style="color: #21b471; padding-bottom: 10px;"><?php if(!empty($message)) echo $message ?></h4>
+</div>
 
 <!-- Formulaire pour la soumission d'un CV-->
 <div class="registration-form">
     <form method="POST" enctype="multipart/form-data">
         <h2 class="mb-5"><?php echo $offer->titleOffer ?></h2>
-        <h6 style="color: #0f5132"><?php if(!empty($message)) echo $message ?></h6>
 
         <h6>Name</h6>
         <div class="form-group">
