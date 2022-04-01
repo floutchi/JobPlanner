@@ -23,6 +23,8 @@ if(isset($_POST['create'])) {
     $offer->idRH = intval($_SESSION['idUser']);
 
     $offerRepository->storeOffer($offer, $message);
+
+    header('Location: myOffers.php');
 }
 ?>
 

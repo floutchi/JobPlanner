@@ -19,7 +19,7 @@ if(isset($_POST['create'])) {
     $offer->jobStartDate = htmlentities($_POST['startDate']);
     $offer->skillsOffer = htmlentities($_POST['skills']);
 
-    $offerRepository->storeOffer($offer, $message);
+    header('Location: myAgenda.php');
 }
 ?>
 
