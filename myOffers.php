@@ -1,6 +1,5 @@
 <?php
 require 'php/db_offer.inc.php';
-session_start();
 
 use Offer\OfferRepository;
 
