@@ -12,15 +12,15 @@
                     <li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#joboffer">Job offers</a></li>
                     <?php
-                    if(isset($_SESSION['isRH'])) {
-                        if($_SESSION['isRH'] == 1) {
+                    if (isset($_SESSION['isRH'])) {
+                        if ($_SESSION['isRH'] == 1) {
                             echo '
                         <li class="nav-item active"><a class="nav-link" href="myOffers.php">My offers</a></li>
                         <li class="nav-item"><a class="nav-link" href="myAgenda.php">My agenda</a></li>
                         <li class="nav-item"><a class="nav-link" href="php/logout.php">Logout</a></li>
                     ';
                         } else {
-                                echo '
+                            echo '
                             <li class="nav-item"><a class="nav-link" href="php/logout.php">Logout</a></li>
                             ';
                         }
@@ -32,18 +32,29 @@
         </div>
         <nav class="navbar navbar-light bg-light">
             <ul class="navbar-nav">
-<?php
-        if(isset($_SESSION['isRH'])) {
-            if($_SESSION['isRH'] == 1) {
-                echo '
-                    <li class="nav-item pe-2">
+                <?php
+                if (isset($_SESSION['isRH'])) {
+                    if ($_SESSION['isRH'] == 1) {
+                        echo '
+                    <li class="nav-item pe-3">
                         <a href="createOffer.php"><img id="addOffer" src="assets/plus-circle-fill.svg" alt="" width="30" height="24"></a>
                     </li>';
-            }
-        } ?>
-            <li class="nav-item">
-                <a href="#" id="loginbtn"><img id="connectionManager" href="#" src="assets/person-fill.svg" alt="" width="30" height="24"></a>
-            </li>
+                    }
+                } ?>
+                <li class="nav-item pe-3">
+                    <a href="searchPostulate.php" id="searchOffer"><img id="searchAnOffer" href="#"
+                                                                         src="assets/search.svg" alt="" width="30"
+                                                                         height="24"></a>
+                </li>
+
+                <li class="nav-item pe-3">
+                    <a href="#" id="askquestions"><img id="helpPage" href="#" src="assets/question-circle-fill.svg" alt=""
+                                                   width="30" height="24"></a>
+                </li>
+                <li class="nav-item pe-3">
+                    <a href="#" id="loginbtn"><img id="connectionManager" href="#" src="assets/person-fill.svg" alt=""
+                                                   width="30" height="24"></a>
+                </li>
             </ul>
         </nav>
     </nav>

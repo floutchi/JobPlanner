@@ -1,5 +1,6 @@
 <?php
 require 'php/db_offer.inc.php';
+session_start();
 
 use Offer\OfferRepository;
 
@@ -14,9 +15,9 @@ $resultat = $offerRepository->showOffers();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>My offers</title>
 </head>
@@ -44,11 +45,11 @@ $resultat = $offerRepository->showOffers();
                     <a class="btn btn-secondary btn_societyColor" href="consultOffer.php?id_offer=' . $row['idOffer'] . '" role="button">View application »</a>
                     </li>
                     <li class="list-inline-item">
-                        <button class="btn" type="button" title="Edit"><img id="edit" src="../assets/pencil-fill.svg" alt=""
+                        <button class="btn" type="button" title="Edit"><img id="edit" src="assets/pencil-fill.svg" alt=""
                                                                             width="20" height="19"></button>
                     </li>
                     <li class="list-inline-item">
-                        <button class="btn" type="button" title="Delete"><img id="delete" src="../assets/trash-fill.svg"
+                        <button class="btn" type="button" title="Delete"><img id="delete" src="assets/trash-fill.svg"
                                                                               alt="" width="20" height="19"></button>
                     </li>
                 </ul>
