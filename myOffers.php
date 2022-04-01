@@ -17,6 +17,7 @@ $resultat = $offerRepository->showOffers();
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-footer.css">
     <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>My offers</title>

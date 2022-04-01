@@ -34,6 +34,7 @@ $resultat = $repository->showApplicationByOffer($id);
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style-candidateList.css">
+    <link rel="stylesheet" href="css/style-footer.css">
     <script src="js/bootstrap.min.js"></script>
     <title>Offer</title>
 </head>
