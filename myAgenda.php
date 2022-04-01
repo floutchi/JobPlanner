@@ -7,6 +7,7 @@ session_start();
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style-agenda.css">
+    <link rel="stylesheet" href="css/style-footer.css">
     <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>My agenda</title>
@@ -45,7 +46,7 @@ session_start();
 
 
 </div>
-
+<?php require ('php/footer.inc.php')?>
 
 </body>
 </html>

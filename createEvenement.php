@@ -19,7 +19,7 @@ if(isset($_POST['create'])) {
     $offer->jobStartDate = htmlentities($_POST['startDate']);
     $offer->skillsOffer = htmlentities($_POST['skills']);
 
-    $offerRepository->storeOffer($offer, $message);
+    header('Location: myAgenda.php');
 }
 ?>
 
@@ -28,6 +28,7 @@ if(isset($_POST['create'])) {
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style-createOffer.css">
+    <link rel="stylesheet" href="css/style-footer.css">
     <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>JobPlanner - Create evenement</title>
@@ -66,6 +67,6 @@ if(isset($_POST['create'])) {
         </div>
     </form>
 </div>
-
+<?php require ('php/footer.inc.php')?>
 </body>
 </html>

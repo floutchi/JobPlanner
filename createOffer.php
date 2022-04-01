@@ -23,6 +23,8 @@ if(isset($_POST['create'])) {
     $offer->idRH = intval($_SESSION['idUser']);
 
     $offerRepository->storeOffer($offer, $message);
+
+    header('Location: myOffers.php');
 }
 ?>
 
@@ -31,6 +33,7 @@ if(isset($_POST['create'])) {
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style-createOffer.css">
+    <link rel="stylesheet" href="css/style-footer.css">
     <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>JobPlanner - Create offer</title>
@@ -77,6 +80,6 @@ if(isset($_POST['create'])) {
         </div>
     </form>
 </div>
-
+<?php require ('php/footer.inc.php')?>
 </body>
 </html>

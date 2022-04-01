@@ -15,6 +15,7 @@ if(isset($_POST['submit'])) {
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style-createOffer.css">
+    <link rel="stylesheet" href="css/style-footer.css">
     <script src="js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>Confirmation</title>
@@ -61,5 +62,7 @@ if(isset($_POST['submit'])) {
         </div>
     </form>
 </div>
+
+<?php require ('php/footer.inc.php')?>
 </body>
 </html>
